@@ -195,12 +195,10 @@ mediaType: application/json
             }
       responses:
         204:
-
-
-    delete: As an admin I can delete an attendance so that I can dissolution an attendance.
-          description: delete successfully.
-          responses:
-            204:
+    delete: 
+      description: As an admin I can delete an attendance so that I can dissolution an attendance. 
+      responses:
+        204:
 /employees:
   get:
     description: As an admin I can get all employee information so that I can manage them.
@@ -344,11 +342,10 @@ mediaType: application/json
                   "gender": "male"
                 }
 
-    delete: As an admin I can delete an employee when she/he resign.
-      description: delete successfully.
+    delete: 
+      description: As an admin I can delete an employee when she/he resign.
       responses:
         204:
-
     put:
       description: As an admin I can update an employee information when she/he change role or dempartment.
       body:
@@ -380,5 +377,5 @@ mediaType: application/json
               "role_id": 2,
               "gender": "male"
             }
-        responses:
-          204:
+      responses:
+        204:
