@@ -22,7 +22,7 @@ describe("Test", function () {
       qs: {},
       json: {
         "name": "Jane Smith",
-        "attendanceId": 2,
+        "department_id": 2,
         "role_id": 3,
         "gender": "male"
       },
@@ -79,16 +79,16 @@ describe("Test", function () {
           "name": {
             "type": "string"
           },
-          "attendanceId": {
+          "department_id": {
             "type": "integer"
           },
           "role_id": {
             "type": "integer"
           },
           "gender": {
-            "type": "integer"
+            "type": "string"
           },
-          "required": ["employee_url", "id", "name", "attendanceId", "gender", "role_id"]
+          "required": ["employee_url", "id", "name", "department_id", "gender", "role_id"]
         }
       };
       if (schema != '') {
@@ -134,16 +134,16 @@ describe("Test", function () {
             "name": {
               "type": "string"
             },
-            "attendanceId": {
+            "department_id": {
               "type": "integer"
             },
             "role_id": {
               "type": "integer"
             },
             "gender": {
-              "type": "integer"
+              "type": "string"
             },
-            "required": ["employee_url", "id", "name", "attendanceId", "gender", "role_id"]
+            "required": ["employee_url", "id", "name", "department_id", "gender", "role_id"]
           }
         }
       };
@@ -167,15 +167,15 @@ describe("Test", function () {
       url: endpoint + '/employees/' + employeeId,
       method: 'PUT',
       qs: {},
-      body: {
+      json: {
         "name": "Jane Smith",
-        "attendanceId": 1,
+        "department_id": 1,
         "role_id": 2,
         "gender": "male"
       },
       header: {}
     };
-    
+
     request(options, function (error, response, body) {
       assert.isNull(error);
       assert.isNotNull(response, 'Response');
@@ -246,7 +246,7 @@ describe("Test", function () {
         "type": "object",
         "properties": {
           "employee_id": {
-            "type": "string"
+            "type": "integer"
           },
           "description": {
             "type": "string"
@@ -263,7 +263,7 @@ describe("Test", function () {
           "to_date": {
             "type": "string"
           },
-          "required": ["employee_id","id", "name", "department_id", "gender", "role_id"]
+          "required": ["employee_id", "description", "id", "present", "from_date", "to_date"]
         }
       };
       if (schema != '') {
@@ -342,9 +342,9 @@ describe("Test", function () {
       url: endpoint + '/attendances/' + attendanceId,
       method: 'PUT',
       qs: {},
-      body: {
+      json: {
         "employee_id": "1",
-        "name": "Jane Smith",
+        "description": "Jane Smith",
         "present": true,
         "from_date": "2017/03/02 08:00",
         "to_date": "2017/03/02 11:00"
